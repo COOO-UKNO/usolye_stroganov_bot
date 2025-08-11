@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 XLSX_PATH = './data.xlsx'
 
+load_dotenv()
 USERNAME = os.getenv('ADMIN_USERNAME')
 PASSWORD = os.getenv('ADMIN_PASSWORD')
 
