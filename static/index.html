@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактор данных</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/public/tabulator/tabulator.min.css">
+    <script src="/static/public/tabulator/tabulator.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #121212;
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        #table {
+            flex: 1 !important;
+            margin: 20px !important;
+            background: #1e1e2f !important;
+            border: 1px solid #2a2a40 !important;
+            border-radius: 8px !important;
+            color: #f5f5f5 !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .tabulator-tableholder {
+            background: #1e1e2f !important;
+        }
+
+        .tabulator {
+            background: #1e1e2f !important;
+            color: #cfcfe0 !important;
+        }
+
+        /*.tabulator-header {*/
+        /*    background: #2a2a40;*/
+        /*    color: #e0e0e0;*/
+        /*    border-bottom: 1px solid #3a3a50;*/
+        /*}*/
+
+        .tabulator-header .tabulator-col {
+            border-right: 1px solid #3a3a50 !important;
+        }
+
+        .tabulator-row {
+            background: #1e1e2f !important;
+            border-bottom: 1px solid #2a2a40 !important;
+            color: #f5f5f5 !important;
+        }
+
+        .tabulator-row:nth-child(even) {
+            background: #252537 !important;
+        }
+
+        .tabulator-row:hover {
+            background: #3a4b57 !important;
+        }
+
+        .tabulator-row.tabulator-selected {
+            background: #505068 !important;
+            color: #ffffff !important;
+        }
+
+        .tabulator-cell {
+            border-right: 1px solid #2a2a40 !important;
+        }
+
+        .tabulator-cell textarea {
+            background: #2a2a40 !important;
+            color: #ffffff !important;
+            border: 1px solid #3a3a50 !important;
+            border-radius: 4px !important;
+            padding: 4px !important;
+        }
+
+        .footer {
+            padding: 15px;
+            background: #2a2a40;
+            text-align: center;
+            color: #f5f5f5;
+            border-top: 1px solid #3a3a50;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background: #3f51b5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #303f9f;
+        }
+
+        button:active {
+            background: #1e2a78;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .tabulator-row.tabulator-selectable:hover {
+                background-color: #3a4b57;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Редактор данных</h1>
+    <div id="table"></div>
+    <div class="footer">
+        <button onclick="addRow()">Добавить строку</button>
+        <button onclick="save()">Сохранить изменения</button>
+    </div>
+
+    <script>
+    async function fetchData() {
+        const response = await fetch("/data", {
+            headers: {
+                "Authorization": "Basic " + btoa("admin:1234")
+            }
+        });
+        if (!response.ok) {
+            alert("Ошибка загрузки данных");
+            return [];
+        }
+        return await response.json();
+    }
+
+    async function initializeTable() {
+        const tabledata = await fetchData();
+
+        const columns = [
+            {formatter: "rownum", title: "#", hozAlign: "center", width: 50},
+            {title: "Техническое имя кнопки", field: "tech_button_name"},
+            {title: "Имя кнопки", field: "button_name"},
+            {title: "Описание", field: "description"},
+            {title: "Имя изображения", field: "image_name"}
+        ];
+
+        const processedColumns = columns.map(column => ({
+            ...column,
+            headerSort: false,
+            formatter: column.formatter || "textarea",
+            maxWidth: 500,
+            editor: column.formatter || "textarea",
+            onBlur: function(e, value) {
+                return value === "" ? null : value;  // Если пусто, ставим null
+            }
+        }));
+        const table = new Tabulator("#table", {
+            resizableRows: true,  // Разрешение на изменение размера строк
+            virtualDom: true,
+            layout: "fitDataStretch",
+            data: tabledata,
+            columns: processedColumns
+        });
+
+        window.table = table;
+    }
+
+    async function save() {
+        const data = window.table.getData();
+        const orderedData = data.map(row => ({
+            tech_button_name: row.tech_button_name || "",
+            button_name: row.button_name || "",
+            description: row.description || "",
+            image_name: row.image_name || ""
+        }));
+        const response = await fetch("/data", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Basic " + btoa("admin:1234")
+            },
+            body: JSON.stringify(orderedData)
+        });
+
+        if (response.ok) {
+            alert("Данные успешно сохранены!");
+        } else {
+            alert("Ошибка сохранения данных");
+        }
+    }
+
+    function addRow() {
+        window.table.addRow({tech_button_name: "", button_name: "", description: "", image_name: ""});
+        window.table.getRows().pop().scrollTo();
+    }
+
+    setTimeout(function() {
+        table.redraw(true);
+    }, 100);
+    initializeTable();
+</script>
+</body>
+</html>
