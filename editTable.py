@@ -3,6 +3,7 @@ from functools import wraps
 import pandas as pd
 import os
 import base64
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
