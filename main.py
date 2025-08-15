@@ -17,9 +17,9 @@ placeholder_photo = 'photos/placeholder.png'
 
 start_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_hangout")[0]), callback_data="walking")],
-        [InlineKeyboardButton("Программа выходного дня", url="https://blackweekend.yonote.ru/share/b2a7bec2-3738-4f95-bb62-d96f980d43bb")],
-        [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
-        [InlineKeyboardButton("Главные события", callback_data='events')]
+        [InlineKeyboardButton("Анекта", callback_data="anketa")]
+       # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
+       # [InlineKeyboardButton("Главные события", callback_data='events')]
     ]
 residents_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_yrok")[0]), callback_data="rez1")],
