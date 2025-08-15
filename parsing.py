@@ -9,6 +9,7 @@ def voz(button_zavod):
     for fir in range(0,100):
         value = df.iloc[fir, 0]
         if value == button_zavod:
+            print(df.iloc[fir, 3])
             photo= df.iloc[fir, 3].split(";")
             for i in range(len(photo)):
                 st3 += "photos/" +  photo[i]+";"
