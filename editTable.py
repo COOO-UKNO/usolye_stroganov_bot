@@ -10,8 +10,8 @@ app = Flask(__name__)
 XLSX_PATH = './data.xlsx'
 
 load_dotenv()
-USERNAME = os.getenv('ADMIN_USERNAME')
-PASSWORD = os.getenv('ADMIN_PASSWORD')
+USERNAME = 'root'
+PASSWORD = 'root'
 
 def check_auth(auth_header):
     if not auth_header or not auth_header.startswith("Basic "):
