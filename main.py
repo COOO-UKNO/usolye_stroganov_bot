@@ -23,12 +23,17 @@ start_keyboard = [
     ]
 
 zone_keyboard = [
-            [InlineKeyboardButton(str(parsing.voz("btn_zonaMountain")[0]), callback_data="zone1")],
-            [InlineKeyboardButton(str(parsing.voz("btn_zoneWhater")[0]), callback_data="zone2")],
-            [InlineKeyboardButton(str(parsing.voz("btn_zoneSmallScene")[0]), callback_data="zone3")],
-            [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone4")],
-            [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone5")],
-            [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back")]
+            # [InlineKeyboardButton(str(parsing.voz("btn_zonaMountain")[0]), callback_data="zone1")],
+            # [InlineKeyboardButton(str(parsing.voz("btn_zoneWhater")[0]), callback_data="zone2")],
+            # [InlineKeyboardButton(str(parsing.voz("btn_zoneSmallScene")[0]), callback_data="zone3")],
+            # [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone4")],
+            # [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone5")],
+            [InlineKeyboardButton("btn_zonaMountain", callback_data="zone1")],
+            [InlineKeyboardButton("btn_zoneWhater", callback_data="zone2")],
+            [InlineKeyboardButton("btn_zoneSmallScene", callback_data="zone3")],
+            [InlineKeyboardButton("btn_zoneBigScene", callback_data="zone4")],
+            [InlineKeyboardButton("btn_zoneBigScene", callback_data="zone5")],
+            [InlineKeyboardButton("btn_back", callback_data="back")]
         ]
 place1_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_spaso_preobr_monas")[0]), callback_data="place11")],
@@ -152,8 +157,8 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
         
-    if query.data == "zone5" or query.data == "back_zone2":
-        new_keyboard = place2_keyboard
+    if query.data == "zone5" or query.data == "back_zone5":
+        new_keyboard = place5_keyboard
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
@@ -209,10 +214,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place15":
         new_keyboard = [[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone1")]]
-        with open(str(parsing.voz("btn_incon_mother_of_good")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_vlad")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_incon_mother_of_good")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_vlad")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -255,10 +260,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "place21":
         new_keyboard = [[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone2")]]
-        with open(str(parsing.voz("btn_artKapla")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_ambar_pripasnoj_u_posada")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_artKapla")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_ambar_pripasnoj_u_posada")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -266,10 +271,54 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place22":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone2")]]
-        with open(str(parsing.voz("btn_artLodka")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_pripasnoj_ambar_u_lazarevyh")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_artLodka")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_pripasnoj_ambar_u_lazarevyh")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+    if query.data == "place23":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone2")]]
+        with open(str(parsing.voz("btn_ambar_golicynyh")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_ambar_golicynyh")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+    if query.data == "place24":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone2")]]
+        with open(str(parsing.voz("btn_magazin_materialinyj")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_magazin_materialinyj")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+    if query.data == "place25":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone2")]]
+        with open(str(parsing.voz("btn_kuznica_stroganovyh")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_kuznica_stroganovyh")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+    if query.data == "place26":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone2")]]
+        with open(str(parsing.voz("btn_kuznica_golicynyh")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_kuznica_golicynyh")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -278,10 +327,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "place31":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone3")]]
-        with open(str(parsing.voz("btn_skam")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_varnica_nikoliskaya")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_skam")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_varnica_nikoliskaya")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -290,43 +339,22 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
     if query.data == "place32":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone3")]]
-        with open(str(parsing.voz("btn_gateway")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_mastreskaya_pri_promyslah_golicynyh")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_gateway")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_mastreskaya_pri_promyslah_golicynyh")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
-    if query.data == "place33":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone3")]]
-        with open(str(parsing.voz("btn_artShe")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_artShe")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
-    if query.data == "place34":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone3")]]
-        with open(str(parsing.voz("btn_artFromEarth")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_artFromEarth")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
+
     if query.data == "place41":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone4")]]
-        with open(str(parsing.voz("btn_stena")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_korpus_varochnyh_shuvalovyh")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_stena")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_korpus_varochnyh_shuvalovyh")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -334,10 +362,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place42":
         new_keyboard = [[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone4")]]
-        with open(str(parsing.voz("btn_cex")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_korpus_parovoj_mashiny_shuvalovyh")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_cex")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_korpus_parovoj_mashiny_shuvalovyh")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -345,10 +373,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place43":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone4")]]
-        with open(str(parsing.voz("btn_artDomiki")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_korpus_parovoj_mashiny_strogonovyh")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_artDomiki")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_korpus_parovoj_mashiny_strogonovyh")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -356,104 +384,62 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place44":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone4")]]
-        with open(str(parsing.voz("btn_nal")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_ambar_pripasnoj")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_nal")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_ambar_pripasnoj")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+    if query.data == "place45":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone4")]]
+        with open(str(parsing.voz("btn_pokrovskaya_chasovnya_rotonda")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_pokrovskaya_chasovnya_rotonda")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
 
-    if query.data == "rez1":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_yrok")[2][0]), 'rb') as photo_file:
+    if query.data == "place51":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone5")]]
+        with open(str(parsing.voz("btn_cerkov")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_yrok")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_cerkov")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
-    if query.data == "rez2":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_syvlav")[2][0]), 'rb') as photo_file:
+    if query.data == "place52":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone5")]]
+        with open(str(parsing.voz("btn_yakor")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_syvlav")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_yakor")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
-    if query.data == "rez3":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_myznal")[2][0]), 'rb') as photo_file:
+    if query.data == "place53":
+        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone5")]]
+        with open(str(parsing.voz("btn_sirin")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_myznal")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_sirin")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
-    if query.data == "rez4":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_gon")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_gon")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
-    if query.data == "rez5":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_tkach")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_tkach")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
-    if query.data == "rez6":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_yralmerch")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_yralmerch")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
-    if query.data == "rez7":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_kyky")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_kyky")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
-    if query.data == "rez8":
-        new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_rez")]]
-        with open(str(parsing.voz("btn_masttrav")[2][0]), 'rb') as photo_file:
-            media = InputMediaPhoto(
-                media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_masttrav")[1])  # Текст из вашего кода
-            )
-        await query.edit_message_media(
-            media=media,
-            reply_markup=InlineKeyboardMarkup(new_keyboard)
-        )
+
+
 
 
 
