@@ -43,32 +43,30 @@ place1_keyboard = [
 place2_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_ambar_pripasnoj_u_posada")[0]), callback_data="place21")],
             [InlineKeyboardButton(str(parsing.voz("btn_pripasnoj_ambar_u_lazarevyh")[0]), callback_data="place22")],
-            [InlineKeyboardButton(str(parsing.voz("btn_ambar_golicynyh")[0]), callback_data="place21")],
-            [InlineKeyboardButton(str(parsing.voz("btn_magazin_materialinyj")[0]), callback_data="place21")],
-            [InlineKeyboardButton(str(parsing.voz("btn_kuznica_stroganovyh")[0]), callback_data="place21")],
-            [InlineKeyboardButton(str(parsing.voz("btn_kuznica_golicynyh")[0]), callback_data="place21")],
+            [InlineKeyboardButton(str(parsing.voz("btn_ambar_golicynyh")[0]), callback_data="place23")],
+            [InlineKeyboardButton(str(parsing.voz("btn_magazin_materialinyj")[0]), callback_data="place24")],
+            [InlineKeyboardButton(str(parsing.voz("btn_kuznica_stroganovyh")[0]), callback_data="place25")],
+            [InlineKeyboardButton(str(parsing.voz("btn_kuznica_golicynyh")[0]), callback_data="place26")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place3_keyboard = [
-            [InlineKeyboardButton(str(parsing.voz("btn_skam")[0]), callback_data="place31")],
-            [InlineKeyboardButton(str(parsing.voz("btn_gateway")[0]), callback_data="place32")],
-            [InlineKeyboardButton(str(parsing.voz("btn_artShe")[0]), callback_data="place33")],
-            [InlineKeyboardButton(str(parsing.voz("btn_artFromEarth")[0]), callback_data="place34")],
+            [InlineKeyboardButton(str(parsing.voz("btn_varnica_nikoliskaya")[0]), callback_data="place31")],
+            [InlineKeyboardButton(str(parsing.voz("btn_mastreskaya_pri_promyslah_golicynyh")[0]), callback_data="place32")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place4_keyboard = [
-            [InlineKeyboardButton(str(parsing.voz("btn_stena")[0]), callback_data="place41")],
-            [InlineKeyboardButton(str(parsing.voz("btn_cex")[0]), callback_data="place42")],
-            [InlineKeyboardButton(str(parsing.voz("btn_artDomiki")[0]), callback_data="place43")],
-            [InlineKeyboardButton(str(parsing.voz("btn_nal")[0]), callback_data="place44")],
+            [InlineKeyboardButton(str(parsing.voz("btn_korpus_varochnyh_shuvalovyh")[0]), callback_data="place41")],
+            [InlineKeyboardButton(str(parsing.voz("btn_korpus_parovoj_mashiny_shuvalovyh")[0]), callback_data="place42")],
+            [InlineKeyboardButton(str(parsing.voz("btn_korpus_parovoj_mashiny_strogonovyh")[0]), callback_data="place43")],
+            [InlineKeyboardButton(str(parsing.voz("btn_ambar_pripasnoj")[0]), callback_data="place44")],
+            [InlineKeyboardButton(str(parsing.voz("btn_pokrovskaya_chasovnya_rotonda")[0]), callback_data="place45")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
-events_keyboard=[
-            [InlineKeyboardButton("Масленица", url="https://vk.com/club204815708")],
-            [InlineKeyboardButton("Демидов Фест", url="https://vk.com/club214641997")],
-            [InlineKeyboardButton("Заговельнички", url="https://vk.com/club215953798")],
-            [InlineKeyboardButton("Веселые холмы", url="https://vk.com/funnyhills")],
-            [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back")]
+place5_keyboard = [
+            [InlineKeyboardButton(str(parsing.voz("btn_cerkov")[0]), callback_data="place51")],
+            [InlineKeyboardButton(str(parsing.voz("btn_yakor")[0]), callback_data="place52")],
+            [InlineKeyboardButton(str(parsing.voz("btn_sirin")[0]), callback_data="place53")],
+            [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 
 
