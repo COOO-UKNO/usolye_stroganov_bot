@@ -12,7 +12,7 @@ import os
 load_dotenv()
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-placeholder_photo = 'photos/map.jpg'
+placeholder_photo = 'photos/placeholder.png'
 
 
 start_keyboard = [
@@ -144,6 +144,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
+        
     if query.data == "zone3" or query.data == "back_zone3":
         new_keyboard = place3_keyboard
         with open(placeholder_photo, 'rb') as photo_file:
@@ -154,6 +155,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
+        
     if query.data == "zone4" or query.data == "back_zone4":
         new_keyboard = place4_keyboard
         with open(placeholder_photo, 'rb') as photo_file:
@@ -257,6 +259,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
+        
     if query.data == "place32":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone3")]]
         with open(str(parsing.voz("btn_gateway")[2][0]), 'rb') as photo_file:
