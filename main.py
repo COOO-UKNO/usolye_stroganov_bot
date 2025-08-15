@@ -36,11 +36,11 @@ zone_keyboard = [
             [InlineKeyboardButton("btn_back", callback_data="back")]
         ]
 place1_keyboard = [
-            [InlineKeyboardButton(str(parsing.voz("btn_spaso_preobr_monas")[0]), callback_data="place11")],
+            [InlineKeyboardButton(str(parsing.voz("btn_spaso_preobrazhenskij_monastyr")[0]), callback_data="pace11")],
             [InlineKeyboardButton(str(parsing.voz("btn_spaso_preobrazhenskij_sobor")[0]), callback_data="place12")],
             [InlineKeyboardButton(str(parsing.voz("btn_palaty_stroganovyh")[0]), callback_data="place13")],
             [InlineKeyboardButton(str(parsing.voz("btn_usadiba_golicyna")[0]), callback_data="place14")],
-            [InlineKeyboardButton(str(parsing.voz("btn_vlad")[0]), callback_data="place15")],
+            [InlineKeyboardButton(str(parsing.voz("btn_incon_mother_of_good")[0]), callback_data="place15")],
             [InlineKeyboardButton(str(parsing.voz("btn_kolokolinya_s_torgovymi_ryadami")[0]), callback_data="place16")],
             [InlineKeyboardButton(str(parsing.voz("btn_dom_abamelek-lazareva")[0]), callback_data="place17")],
             [InlineKeyboardButton(str(parsing.voz("btn_dom_bragina")[0]), callback_data="place18")],
@@ -69,8 +69,8 @@ place4_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place5_keyboard = [
-            [InlineKeyboardButton(str(parsing.voz("btn_cerkov")[0]), callback_data="place51")],
-            [InlineKeyboardButton(str(parsing.voz("btn_yakor")[0]), callback_data="place52")],
+            [InlineKeyboardButton(str(parsing.voz("btn_Nikolskaya_tserkov")[0]), callback_data="place51")],
+            [InlineKeyboardButton(str(parsing.voz("btn_yakoria_Usolia")[0]), callback_data="place52")],
             [InlineKeyboardButton(str(parsing.voz("btn_sirin")[0]), callback_data="place53")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
@@ -214,10 +214,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place15":
         new_keyboard = [[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone1")]]
-        with open(str(parsing.voz("btn_vlad")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_incon_mother_of_good")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_vlad")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_incon_mother_of_good")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -407,10 +407,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "place51":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone5")]]
-        with open(str(parsing.voz("btn_cerkov")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_Nikolskaya_tserkov")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_cerkov")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_Nikolskaya_tserkov")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -418,10 +418,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place52":
         new_keyboard =[[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone5")]]
-        with open(str(parsing.voz("btn_yakor")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_yakoria_Usolia")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_yakor")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_yakoria_Usolia")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,

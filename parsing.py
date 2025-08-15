@@ -15,3 +15,5 @@ def voz(button_zavod):
             otv = [df.iloc[fir, 1],df.iloc[fir, 2],st3.split(";")]
             break
     return(otv)
+
+print(voz("btn_spaso_preobrazhenskij_monastyr"))
