@@ -1,0 +1,52 @@
+zone1:
+    btn_spaso_preobrazhenskij_monastyr 
+        Spaso-Preobrazhenskiy zhenskiy monastyr'.jpg
+    btn_spaso_preobrazhenskij_sobor
+        Spaso-Preobrazhenskiy sobor.jpg
+    btn_palaty_stroganovyh
+        palaty stroganovykh.jpeg
+    btn_quest_5
+
+zone2:
+    btn_usadiba_golicyna
+        Usad'ba Golitsyna.JPG
+    btn_incon_mother_of_good
+        Vladimirskoy ikony Bozhiyey Materi.jpeg
+    btn_kolokolinya_s_torgovymi_ryadami
+        kolokol'nya.jpeg
+    btn_dom_abamelek-lazareva
+        Dom Abamelek-Lazareva.jpg
+    btn_dom_bragina
+        Dom Bragina.JPG
+    btn_quest_4
+
+zone3:
+    btn_ambar_pripasnoj_u_posada
+        Ambar pripasnoy u posada.JPG
+    btn_quest_3
+    btn_quest_4    
+    btn_pripasnoj_ambar_u_lazarevyh
+        pripasnoj_ambar_u_lazarevyh.jpg
+    btn_ambar_golicynyh
+        Golitsyn's barn.jpeg
+    btn_magazin_materialinyj
+        magazin_materialinyj.jpg
+    btn_kuznica_stroganovyh
+        Kuznitsa Stroganovykh.jpg
+    btn_kuznica_golicynyh
+        Kuznitsa Golitsynykh.jpg
+zone 4:
+    btn_quest_6
+    btn_varnica_nikoliskaya
+        Varnitsa Nikol'skaya.jpg
+    btn_mastreskaya_pri_promyslah_golicynyh
+        Masterskaya pri promyslakh Golitsynykh.jpg
+
+zone5:
+    btn_korpus_varochnyh_shuvalovyh
+        Korpus varochnykh Shuvalovykh.jpg
+    btn_korpus_parovoj_mashiny_shuvalovyh
+        Korpus parovoy mashiny Shuvalovykh.jpg
+    btn_korpus_parovoj_mashiny_strogonovyh
+        Korpus parovoy mashiny Stroganovykh.jpg
+    btn_quest_7
