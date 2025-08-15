@@ -1,4 +1,4 @@
-zone1:
+zone1: группа зданий вокруг Соборной площади
     btn_spaso_preobrazhenskij_monastyr 
         Spaso-Preobrazhenskiy zhenskiy monastyr'.jpg
     btn_spaso_preobrazhenskij_sobor
@@ -6,8 +6,6 @@ zone1:
     btn_palaty_stroganovyh
         palaty stroganovykh.jpeg
     btn_quest_5
-
-zone2:
     btn_usadiba_golicyna
         Usad'ba Golitsyna.JPG
     btn_incon_mother_of_good
@@ -20,7 +18,7 @@ zone2:
         Dom Bragina.JPG
     btn_quest_4
 
-zone3:
+zone2: группа зданий амбары и кузницы
     btn_ambar_pripasnoj_u_posada
         Ambar pripasnoy u posada.JPG
     btn_quest_3
@@ -35,14 +33,15 @@ zone3:
         Kuznitsa Stroganovykh.jpg
     btn_kuznica_golicynyh
         Kuznitsa Golitsynykh.jpg
-zone 4:
+
+zone3: группа зданий мастерская и варница
     btn_quest_6
     btn_varnica_nikoliskaya
         Varnitsa Nikol'skaya.jpg
     btn_mastreskaya_pri_promyslah_golicynyh
         Masterskaya pri promyslakh Golitsynykh.jpg
 
-zone5:
+zone4: группа зданий вокруг Покровской часовни-ротонды
     btn_korpus_varochnyh_shuvalovyh
         Korpus varochnykh Shuvalovykh.jpg
     btn_korpus_parovoj_mashiny_shuvalovyh
@@ -50,3 +49,18 @@ zone5:
     btn_korpus_parovoj_mashiny_strogonovyh
         Korpus parovoy mashiny Stroganovykh.jpg
     btn_quest_7
+    btn_ambar_pripasnoj
+        Ambar pripasnoy u posada.JPG
+    btn_pokrovskaya_chasovnya_rotonda
+        Pokrovskaya chasovnya-rotonda.jpg
+
+zone5:группа зданий вокруг Соборной площади 
+    btn_Nikolskaya_tserkov
+        Nikol'skaya tserkov'.jpeg
+    btn_pravila_kvesta
+        placeholder.jpg
+    btn_yakoria_Usolia
+        Kamennyye yakorya Usol'ya.jpg
+    btn_sirin
+        sirin.jpg
+    btn_quest_1
