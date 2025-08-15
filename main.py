@@ -114,7 +114,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
-                caption="Зона \"Задний двор вокруг Соборной площади\""  # Текст из вашего кода
+                caption="Зона \"Группа зданий двор вокруг Соборной площади\""  # Текст из вашего кода
         )
         await query.edit_message_media(
             media=media,
@@ -148,6 +148,17 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             media = InputMediaPhoto(
                 media=photo_file,
                 caption="Зона \"Здания вокруг Покровской часовни-ротонды\""  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard))
+        
+    if query.data == "zone5" or query.data == "back_zone2":
+        new_keyboard = place2_keyboard
+        with open(placeholder_photo, 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,
+                caption="Зона \"Здания вокруг Соборной площади\""  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -199,10 +210,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     if query.data == "place15":
         new_keyboard = [[InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone1")]]
-        with open(str(parsing.voz("btn_vlad")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_incon_mother_of_good")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("btn_vlad")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_incon_mother_of_good")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
