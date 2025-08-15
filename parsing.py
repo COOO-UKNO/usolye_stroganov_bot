@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_excel('data.xlsx', sheet_name=0)
+df = pd.read_excel('bot_data.xlsx', sheet_name=0)
 
 
 def voz(button_zavod):

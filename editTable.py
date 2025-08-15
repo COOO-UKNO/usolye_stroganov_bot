@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-XLSX_PATH = './data.xlsx'
+XLSX_PATH = './bot_data.xlsx'
 
 load_dotenv()
 USERNAME = 'root'
