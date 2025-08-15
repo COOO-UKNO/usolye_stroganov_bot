@@ -27,6 +27,7 @@ zone_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_zoneWhater")[0]), callback_data="zone2")],
             [InlineKeyboardButton(str(parsing.voz("btn_zoneSmallScene")[0]), callback_data="zone3")],
             [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone4")],
+            [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone5")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back")]
         ]
 place1_keyboard = [
