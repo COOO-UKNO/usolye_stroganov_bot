@@ -181,7 +181,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
-                caption="Зона \"Мастереская и варница\""  # Текст из вашего кода
+                caption="Зона \"Мастерская и варница\""  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
