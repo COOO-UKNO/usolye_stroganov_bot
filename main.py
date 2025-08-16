@@ -11,7 +11,8 @@ import os
 
 load_dotenv()
 
-BOT_TOKEN = os.getenv('BOT_TOKEN')
+#BOT_TOKEN = os.getenv('BOT_TOKEN')
+BOT_TOKEN = "990455019:AAE8BUnr8d7gAGSAY1Ud4_UIVV6-qCThsns"
 placeholder_photo = 'photos/main_frame.jpg'
 
 
@@ -148,10 +149,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "light_quest":
         new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
-        with open(str(parsing.voz("light_quest")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_light_quest")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("light_quest")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_light_quest")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
@@ -160,10 +161,10 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "hard_quest":
         new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
-        with open(str(parsing.voz("hard_quest")[2][0]), 'rb') as photo_file:
+        with open(str(parsing.voz("btn_hard_quest")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
-                caption=str(parsing.voz("hard_quest")[1])  # Текст из вашего кода
+                caption=str(parsing.voz("btn_hard_quest")[1])  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
