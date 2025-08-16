@@ -17,11 +17,11 @@ placeholder_photo = 'photos/main_frame.jpg'
 
 start_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_hangout")[0]), callback_data="walking")],
-        [InlineKeyboardButton("Анекта", callback_data="anketa")]
+        [InlineKeyboardButton("Анкета", callback_data="anketa")],
+        [InlineKeyboardButton("О боте", callback_data="about")]
        # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
        # [InlineKeyboardButton("Главные события", callback_data='events')]
     ]
-
 zone_keyboard = [
             # [InlineKeyboardButton(str(parsing.voz("btn_zonaMountain")[0]), callback_data="zone1")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneWhater")[0]), callback_data="zone2")],
@@ -79,9 +79,9 @@ place5_keyboard = [
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [[InlineKeyboardButton(str(parsing.voz("btn_start")[0]), callback_data="start")]]
+    keyboard = start_keyboard
     await update.message.reply_photo(
-        photo=str(parsing.voz("btn_hello")[2][0]),
+        photo="photos/main_frame.jpg",
             )
     await update.message.reply_text(
         text=str(parsing.voz("btn_hello")[1]),
@@ -102,6 +102,18 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
+
+    if query.data == "about":
+        new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
+        with open(str(parsing.voz("btn_about")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_about")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
 
     if query.data == "walking" or query.data == "back_zone":
         new_keyboard = zone_keyboard
