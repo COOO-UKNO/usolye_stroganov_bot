@@ -146,6 +146,30 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=InlineKeyboardMarkup(new_keyboard)
         )
 
+    if query.data == "light_quest":
+        new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
+        with open(str(parsing.voz("light_quest")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("light_quest")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+
+    if query.data == "hard_quest":
+        new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
+        with open(str(parsing.voz("hard_quest")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("hard_quest")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+
     if query.data == "walking" or query.data == "back_zone":
         new_keyboard = zone_keyboard
         with open(placeholder_photo, 'rb') as photo_file:
