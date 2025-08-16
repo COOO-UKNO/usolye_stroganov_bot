@@ -17,22 +17,32 @@ placeholder_photo = 'photos/main_frame.jpg'
 
 start_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_hangout")[0]), callback_data="walking")],
-        [InlineKeyboardButton("Анкета", callback_data="anketa")],
+        [InlineKeyboardButton("Анкета", callback_data="quest")],
         [InlineKeyboardButton("О боте", callback_data="about")]
        # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
        # [InlineKeyboardButton("Главные события", callback_data='events')]
     ]
+
+about_keyboard = [
+        #[InlineKeyboardButton(str(parsing.voz("btn_about")[0]), callback_data="about")],
+        [InlineKeyboardButton("Назад", callback_data="back")]
+    ]
+
+quest_keyboard = [
+        [InlineKeyboardButton("Назад", callback_data="back")]
+    ]
+
 zone_keyboard = [
             # [InlineKeyboardButton(str(parsing.voz("btn_zonaMountain")[0]), callback_data="zone1")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneWhater")[0]), callback_data="zone2")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneSmallScene")[0]), callback_data="zone3")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone4")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone5")],
-            [InlineKeyboardButton("Группа зданий вокруг Соборной площади", callback_data="zone1")],
+            [InlineKeyboardButton("Вокруг Соборной площади", callback_data="zone1")],
             [InlineKeyboardButton("Амбары и кузница", callback_data="zone2")],
-            [InlineKeyboardButton("Группа зданий мастерская и варница", callback_data="zone3")],
-            [InlineKeyboardButton("Группа зданий вокруг Покровской часовни-ротонды", callback_data="zone4")],
-            [InlineKeyboardButton("Группа зданий вокруг Соборной площади", callback_data="zone5")],
+            [InlineKeyboardButton("Мастерская и варница", callback_data="zone3")],
+            [InlineKeyboardButton("Вокруг Покровской часовни-ротонды", callback_data="zone4")],
+            [InlineKeyboardButton("Вокруг Соборной площади", callback_data="zone5")],
             [InlineKeyboardButton("Назад", callback_data="back")]
         ]
 place1_keyboard = [
@@ -81,7 +91,7 @@ place5_keyboard = [
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = start_keyboard
     await update.message.reply_photo(
-        photo="photos/main_frame.jpg",
+        photo="photos/palaty stroganovykh.jpeg",
             )
     await update.message.reply_text(
         text=str(parsing.voz("btn_hello")[1]),
@@ -103,8 +113,20 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
 
-    if query.data == "about":
-        new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
+    if query.data == "quest":
+        new_keyboard = quest_keyboard
+        with open(str(parsing.voz("btn_quest")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_quest")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+
+    if query.data == "about" or query.data == "back_zone":
+        new_keyboard = about_keyboard
         with open(str(parsing.voz("btn_about")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
@@ -131,7 +153,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
-                caption="Зона \"Группа зданий двор вокруг Соборной площади\""  # Текст из вашего кода
+                caption="Зона \"Двор вокруг Соборной площади\""  # Текст из вашего кода
         )
         await query.edit_message_media(
             media=media,
@@ -153,7 +175,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
-                caption="Зона \"Мастреская и варница\""  # Текст из вашего кода
+                caption="Зона \"Мастереская и варница\""  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
