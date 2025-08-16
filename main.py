@@ -120,6 +120,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_media(
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
+        
 
     if query.data == "quest":
         new_keyboard = quest_keyboard
