@@ -17,14 +17,14 @@ placeholder_photo = 'photos/main_frame.jpg'
 
 start_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_hangout")[0]), callback_data="walking")],
-        [InlineKeyboardButton("Анкета", callback_data="quest")],
+        # [InlineKeyboardButton("Анкета", callback_data="quest")],
         [InlineKeyboardButton("О боте", callback_data="about")]
-       # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
-       # [InlineKeyboardButton("Главные события", callback_data='events')]
+        # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
+        # [InlineKeyboardButton("Главные события", callback_data='events')]
     ]
 
 about_keyboard = [
-        #[InlineKeyboardButton(str(parsing.voz("btn_about")[0]), callback_data="about")],
+        # [InlineKeyboardButton(str(parsing.voz("btn_about")[0]), callback_data="about")],
         [InlineKeyboardButton("Назад", callback_data="back")]
     ]
 
@@ -54,6 +54,8 @@ place1_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_kolokolinya_s_torgovymi_ryadami")[0]), callback_data="place16")],
             [InlineKeyboardButton(str(parsing.voz("btn_dom_abamelek-lazareva")[0]), callback_data="place17")],
             [InlineKeyboardButton(str(parsing.voz("btn_dom_bragina")[0]), callback_data="place18")],
+            #[InlineKeyboardButton("Задание 5", callback_data="quest5")],
+            #[InlineKeyboardButton("Задание 4", callback_data="quest4")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place2_keyboard = [
@@ -63,11 +65,14 @@ place2_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_magazin_materialinyj")[0]), callback_data="place24")],
             [InlineKeyboardButton(str(parsing.voz("btn_kuznica_stroganovyh")[0]), callback_data="place25")],
             [InlineKeyboardButton(str(parsing.voz("btn_kuznica_golicynyh")[0]), callback_data="place26")],
+            #[InlineKeyboardButton("Задание 3", callback_data="quest3")],
+            #[InlineKeyboardButton("Задание 2", callback_data="quest2")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place3_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_varnica_nikoliskaya")[0]), callback_data="place31")],
             [InlineKeyboardButton(str(parsing.voz("btn_mastreskaya_pri_promyslah_golicynyh")[0]), callback_data="place32")],
+            #[InlineKeyboardButton("Задание 6", callback_data="quest6")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place4_keyboard = [
@@ -76,6 +81,7 @@ place4_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_korpus_parovoj_mashiny_strogonovyh")[0]), callback_data="place43")],
             [InlineKeyboardButton(str(parsing.voz("btn_ambar_pripasnoj")[0]), callback_data="place44")],
             [InlineKeyboardButton(str(parsing.voz("btn_pokrovskaya_chasovnya_rotonda")[0]), callback_data="place45")],
+            #[InlineKeyboardButton("Задание 7", callback_data="quest7")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place5_keyboard = [

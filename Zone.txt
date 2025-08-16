@@ -22,7 +22,7 @@ zone2: группа зданий амбары и кузницы
     btn_ambar_pripasnoj_u_posada
         Ambar pripasnoy u posada.JPG
     btn_quest_3
-    btn_quest_4    
+    btn_quest_2   
     btn_pripasnoj_ambar_u_lazarevyh
         pripasnoj_ambar_u_lazarevyh.jpg
     btn_ambar_golicynyh
