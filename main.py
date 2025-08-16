@@ -11,8 +11,8 @@ import os
 
 load_dotenv()
 
-#BOT_TOKEN = os.getenv('BOT_TOKEN')
-BOT_TOKEN = "990455019:AAE8BUnr8d7gAGSAY1Ud4_UIVV6-qCThsns"
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+#BOT_TOKEN = "990455019:AAE8BUnr8d7gAGSAY1Ud4_UIVV6-qCThsns"
 placeholder_photo = 'photos/main_frame.jpg'
 
 
