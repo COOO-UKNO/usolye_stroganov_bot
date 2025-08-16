@@ -17,22 +17,34 @@ placeholder_photo = 'photos/main_frame.jpg'
 
 start_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_hangout")[0]), callback_data="walking")],
-        [InlineKeyboardButton("Анкета", callback_data="anketa")],
-        [InlineKeyboardButton("О боте", callback_data="about")]
-       # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
-       # [InlineKeyboardButton("Главные события", callback_data='events')]
+        # [InlineKeyboardButton("Анкета", callback_data="quest")],
+        [InlineKeyboardButton("О боте", callback_data="about")],
+        [InlineKeyboardButton("Легкий квест", callback_data="light_quest")],
+        [InlineKeyboardButton("Сложный квест", callback_data="hard_quest")],
+        # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
+        # [InlineKeyboardButton("Главные события", callback_data='events')]
     ]
+
+about_keyboard = [
+        # [InlineKeyboardButton(str(parsing.voz("btn_about")[0]), callback_data="about")],
+        [InlineKeyboardButton("Назад", callback_data="back")]
+    ]
+
+quest_keyboard = [
+        [InlineKeyboardButton("Назад", callback_data="back")]
+    ]
+
 zone_keyboard = [
             # [InlineKeyboardButton(str(parsing.voz("btn_zonaMountain")[0]), callback_data="zone1")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneWhater")[0]), callback_data="zone2")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneSmallScene")[0]), callback_data="zone3")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone4")],
             # [InlineKeyboardButton(str(parsing.voz("btn_zoneBigScene")[0]), callback_data="zone5")],
-            [InlineKeyboardButton("Группа зданий вокруг Соборной площади", callback_data="zone1")],
+            [InlineKeyboardButton("Вокруг Соборной площади", callback_data="zone1")],
             [InlineKeyboardButton("Амбары и кузница", callback_data="zone2")],
-            [InlineKeyboardButton("Группа зданий мастерская и варница", callback_data="zone3")],
-            [InlineKeyboardButton("Группа зданий вокруг Покровской часовни-ротонды", callback_data="zone4")],
-            [InlineKeyboardButton("Группа зданий вокруг Соборной площади", callback_data="zone5")],
+            [InlineKeyboardButton("Мастерская и варница", callback_data="zone3")],
+            [InlineKeyboardButton("Вокруг Покровской часовни-ротонды", callback_data="zone4")],
+            [InlineKeyboardButton("Вокруг Соборной площади", callback_data="zone5")],
             [InlineKeyboardButton("Назад", callback_data="back")]
         ]
 place1_keyboard = [
@@ -44,6 +56,8 @@ place1_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_kolokolinya_s_torgovymi_ryadami")[0]), callback_data="place16")],
             [InlineKeyboardButton(str(parsing.voz("btn_dom_abamelek-lazareva")[0]), callback_data="place17")],
             [InlineKeyboardButton(str(parsing.voz("btn_dom_bragina")[0]), callback_data="place18")],
+            #[InlineKeyboardButton("Задание 5", callback_data="quest5")],
+            #[InlineKeyboardButton("Задание 4", callback_data="quest4")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place2_keyboard = [
@@ -53,11 +67,14 @@ place2_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_magazin_materialinyj")[0]), callback_data="place24")],
             [InlineKeyboardButton(str(parsing.voz("btn_kuznica_stroganovyh")[0]), callback_data="place25")],
             [InlineKeyboardButton(str(parsing.voz("btn_kuznica_golicynyh")[0]), callback_data="place26")],
+            #[InlineKeyboardButton("Задание 3", callback_data="quest3")],
+            #[InlineKeyboardButton("Задание 2", callback_data="quest2")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place3_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_varnica_nikoliskaya")[0]), callback_data="place31")],
             [InlineKeyboardButton(str(parsing.voz("btn_mastreskaya_pri_promyslah_golicynyh")[0]), callback_data="place32")],
+            #[InlineKeyboardButton("Задание 6", callback_data="quest6")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place4_keyboard = [
@@ -66,6 +83,7 @@ place4_keyboard = [
             [InlineKeyboardButton(str(parsing.voz("btn_korpus_parovoj_mashiny_strogonovyh")[0]), callback_data="place43")],
             [InlineKeyboardButton(str(parsing.voz("btn_ambar_pripasnoj")[0]), callback_data="place44")],
             [InlineKeyboardButton(str(parsing.voz("btn_pokrovskaya_chasovnya_rotonda")[0]), callback_data="place45")],
+            #[InlineKeyboardButton("Задание 7", callback_data="quest7")],
             [InlineKeyboardButton(str(parsing.voz("btn_back")[0]), callback_data="back_zone")]
         ]
 place5_keyboard = [
@@ -81,7 +99,7 @@ place5_keyboard = [
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = start_keyboard
     await update.message.reply_photo(
-        photo="photos/main_frame.jpg",
+        photo="photos/palaty stroganovykh.jpeg",
             )
     await update.message.reply_text(
         text=str(parsing.voz("btn_hello")[1]),
@@ -103,8 +121,20 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
             media=media,
             reply_markup=InlineKeyboardMarkup(new_keyboard))
 
-    if query.data == "about":
-        new_keyboard = [InlineKeyboardButton("Назад", callback_data="back")]
+    if query.data == "quest":
+        new_keyboard = quest_keyboard
+        with open(str(parsing.voz("btn_quest")[2][0]), 'rb') as photo_file:
+            media = InputMediaPhoto(
+                media=photo_file,  # URL изображения или file_id
+                caption=str(parsing.voz("btn_quest")[1])  # Текст из вашего кода
+            )
+        await query.edit_message_media(
+            media=media,
+            reply_markup=InlineKeyboardMarkup(new_keyboard)
+        )
+
+    if query.data == "about" or query.data == "back_zone":
+        new_keyboard = about_keyboard
         with open(str(parsing.voz("btn_about")[2][0]), 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,  # URL изображения или file_id
@@ -155,7 +185,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
-                caption="Зона \"Группа зданий двор вокруг Соборной площади\""  # Текст из вашего кода
+                caption="Зона \"Двор вокруг Соборной площади\""  # Текст из вашего кода
         )
         await query.edit_message_media(
             media=media,
@@ -177,7 +207,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         with open(placeholder_photo, 'rb') as photo_file:
             media = InputMediaPhoto(
                 media=photo_file,
-                caption="Зона \"Мастреская и варница\""  # Текст из вашего кода
+                caption="Зона \"Мастерская и варница\""  # Текст из вашего кода
             )
         await query.edit_message_media(
             media=media,
