@@ -18,7 +18,9 @@ placeholder_photo = 'photos/main_frame.jpg'
 start_keyboard = [
         [InlineKeyboardButton(str(parsing.voz("btn_hangout")[0]), callback_data="walking")],
         # [InlineKeyboardButton("Анкета", callback_data="quest")],
-        [InlineKeyboardButton("О боте", callback_data="about")]
+        [InlineKeyboardButton("О боте", callback_data="about")],
+        [InlineKeyboardButton("Легкий квест", callback_data="light_quest")],
+        [InlineKeyboardButton("Сложный квест", callback_data="hard_quest")],
         # [InlineKeyboardButton(str(parsing.voz("btn_rez")[0]), callback_data="residents")],
         # [InlineKeyboardButton("Главные события", callback_data='events')]
     ]
